@@ -5,11 +5,16 @@
 #ifndef CHESSBOARD_SQUARE_H
 #define CHESSBOARD_SQUARE_H
 
-
+#include <iostream>
 #include "Position.h"
 #include "Piece.h"
 
 struct Square {
+    Square() {}
+    Square(const Position &position) : position(position) {
+        piece = Piece();
+    }
+
     Position position;
     Piece piece;
 };

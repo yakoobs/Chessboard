@@ -9,9 +9,14 @@
 #include "Square.h"
 
 class Board {
-    Square  squares[64];
 public:
+    Board();
+
     void setupStartPosition();
+
+private:
+    Square  squares[8][8];
+    void setupPawnsStartingPosition();
 };
 
 

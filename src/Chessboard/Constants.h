@@ -7,6 +7,11 @@
 
 #endif //CHESSBOARD_ENUMS_H
 
+const int kFirstRankIndex = 1;
+const int kNumberOfRanks = 8;
+const int kFirstFileIndex = 1;
+const int kNumberOfFiles = 8;
+
 enum PieceType { King, Queen, Rook, Knight, Bishop, Pawn } ;
 
 enum Colour { Black, White };
@@ -21,6 +26,14 @@ enum Rank {
     R7 = 7,
     R8 = 8};
 
-enum File {A, B, C, D, E, F, G, H};
+enum File {
+    A = 1,
+    B = 2,
+    C = 3,
+    D = 4,
+    E = 5,
+    F = 6,
+    G = 7,
+    H = 8};
 
 enum PlayerStatus { Normal, Check, Checkmate, Stalemate};

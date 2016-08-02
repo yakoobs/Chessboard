@@ -7,6 +7,9 @@
 
 
 struct Piece {
+    Piece(PieceType pieceType, Colour colour) : pieceType(pieceType), colour(colour) {}
+    Piece() {}
+
     PieceType pieceType;
     Colour colour;
 };

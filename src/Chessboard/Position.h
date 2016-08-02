@@ -9,8 +9,11 @@
 #include "Constants.h"
 
 struct Position {
-    Rank rank;
-    File file;
+    Position(Rank rank, File file) : rank(rank), file(file) {}
+    Position() {}
+
+    Rank rank; // A-H
+    File file; // 1-8
 };
 
 
