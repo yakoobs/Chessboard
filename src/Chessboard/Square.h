@@ -11,9 +11,7 @@
 
 struct Square {
     Square() {}
-    Square(const Position &position) : position(position) {
-        piece = Piece();
-    }
+    Square(const Position &position) : position(position) { }
 
     Position position;
     Piece piece;

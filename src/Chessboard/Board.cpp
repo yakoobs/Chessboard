@@ -18,23 +18,29 @@ void Board::setupPawnsStartingPosition() {
     Rank kWhitePawnsRank = R2;
     Rank kBlackPawnsRank = R7;
 
+    PieceType pawnType = Pawn;
+    Colour black = Black;
+    Colour white = White;
+    Piece blackPawn = Piece(pawnType,black);
+    Piece whitePawn = Piece(pawnType, white);
+
     for (int file = kStartFile; file <= kLastFile; file++) {
-        Position position = Position(kWhitePawnsRank, (File) file);
-        PieceType pawnType = Pawn;
-
-        Colour black = Black;
-
-        Colour white = White;
-
-
-        cout<< "Place pawn" <<endl;
+        squares[kWhitePawnsRank - 1][file - 1].piece = whitePawn;
+        squares[kBlackPawnsRank - 1][file - 1].piece = blackPawn;
+        cout<< "Place pawn" << endl;
     }
 }
 
 Board::Board() {
-    for (int rank = kFirstRankIndex; rank < kNumberOfRanks; rank++) {
-        for (int file = kFirstFileIndex; file < kNumberOfFiles; file++) {
-            squares[rank][file] = Square();
+    initializeSquares();
+}
+
+void Board::initializeSquares() {
+    for (int rank = kFirstRankIndex; rank <= kNumberOfRanks; rank++) {
+        for (int file = kFirstFileIndex; file <= kNumberOfFiles; file++) {
+            Position position = Position((Rank) rank, (File) file);
+            squares[rank - 1][file - 1] = Square(position);
         }
     }
 }
+

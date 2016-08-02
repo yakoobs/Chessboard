@@ -17,6 +17,7 @@ public:
 private:
     Square  squares[8][8];
     void setupPawnsStartingPosition();
+    void initializeSquares();
 };
 
 
