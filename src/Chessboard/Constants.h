@@ -36,4 +36,13 @@ enum File {
     G = 7,
     H = 8};
 
+enum MoveResult {
+    Correct,
+    Incorrect_KingChecked,
+    Incorrect_SquareOccupied,
+    Incorrect_OutOfPieceRange,
+    Incorrect_CannotMoveThroughOtherPieces,
+    Incorrect_WrongDirection,
+};
+
 enum PlayerStatus { Normal, Check, Checkmate, Stalemate};
