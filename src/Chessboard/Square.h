@@ -11,10 +11,10 @@
 
 struct Square {
     Square() {}
-    Square(const Position &position) : position(position) { }
+    Square(const Position &position) : position(position), piece(NULL) { }
 
     Position position;
-    Piece piece;
+    Piece* piece;
 };
 
 

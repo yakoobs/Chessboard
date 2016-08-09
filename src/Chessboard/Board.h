@@ -14,10 +14,12 @@ public:
     Board();
     void setupStartPosition();
     void performMove(Move move);
+    void capturePieceAtPosition(Position position);
+    Piece* pieceFromPosition(Position position);
+
 
 private:
     Square squares[8][8];
-    Piece pieceFromSquare(Rank rank, File file);
 
     void setupPawnsStartingPosition();
     void setupPiecesStartingPosition();
@@ -25,7 +27,7 @@ private:
     void placeBlackPiece(Piece piece, File file);
     void placePiece(Piece piece, Rank rank, File file);
     void initializeSquares();
-    void makeSquareEmpty(Rank rank, File file);
+    void movePiece(Position from, Position to);
 };
 
 

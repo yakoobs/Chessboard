@@ -94,8 +94,8 @@ void Board::setupPiecesStartingPosition() {
     placeBlackPiece(blackKing, kBlackKingFile);
 }
 
-Piece Board::pieceFromSquare(Rank rank, File file) {
-    return squares[rank - 1][file - 1].piece;
+Piece* Board::pieceFromPosition(Position position){
+    return squares[position.rank - 1][position.file - 1].piece;
 }
 
 void Board::placeWhitePiece(Piece piece, File file) {
@@ -109,16 +109,24 @@ void Board::placeBlackPiece(Piece piece, File file) {
 }
 
 void Board::placePiece(Piece piece, Rank rank, File file) {
-    squares[rank - 1][file - 1].piece = piece;
+    squares[rank - 1][file - 1].piece = new Piece(piece.pieceType, piece.colour);
 }
 
-void Board::makeSquareEmpty(Rank rank, File file) {
-    //&squares[rank - 1][file - 1].piece = NULL;
+//MOVE
+void Board::movePiece(Position from, Position to) {
+    Piece* piece = squares[from.rank - 1][from.file - 1].piece;
+    squares[to.rank - 1][to.file - 1].piece = piece;
+    squares[from.rank - 1][from.file - 1].piece = NULL;
 }
 
 void Board::performMove(Move move) {
-    makeSquareEmpty(move.startPosition.rank, move.startPosition.file);
-    placePiece(move.piece, move.endPosition.rank, move.endPosition.file);
+    movePiece(move.startPosition, move.endPosition);
+}
+
+//CAPTURE
+void Board::capturePieceAtPosition(Position position) {
+     delete squares[position.rank -1][position.file -1].piece; // Should I remove this in such dirty way?
+    squares[position.rank -1][position.file -1].piece = NULL;
 }
 
 
