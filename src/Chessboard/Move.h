@@ -5,7 +5,7 @@
 #ifndef CHESSBOARD_MOVE_H
 #define CHESSBOARD_MOVE_H
 
-#include "Piece.h"
+#include "Pieces/Piece.h"
 #include "Position.h"
 
 struct Move {

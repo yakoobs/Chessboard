@@ -5,6 +5,7 @@
 #ifndef CHESSBOARD_PIECE_H
 #define CHESSBOARD_PIECE_H
 
+#import "../Constants.h"
 
 struct Piece {
     Piece(PieceType pieceType, Colour colour) : pieceType(pieceType), colour(colour) {}

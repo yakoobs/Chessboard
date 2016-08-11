@@ -12,7 +12,12 @@ const int kNumberOfRanks = 8;
 const int kFirstFileIndex = 1;
 const int kNumberOfFiles = 8;
 
-enum PieceType { King, Queen, Rook, Knight, Bishop, Pawn } ;
+enum PieceType { PieceTypeKing,
+    PieceTypeQueen,
+    PieceTypeRook,
+    PieceTypeKnight,
+    PieceTypeBishop,
+    PieceTypePawn } ;
 
 enum Colour { Black, White };
 

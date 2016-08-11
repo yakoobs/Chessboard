@@ -7,7 +7,7 @@
 
 #include <iostream>
 #include "Position.h"
-#include "Piece.h"
+#include "Pieces/Piece.h"
 
 struct Square {
     Square() {}
