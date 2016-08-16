@@ -11,3 +11,7 @@ void Game::setupStartingPosition() {
     board.setupStartPosition();
     cout << "Starting positions set up!" << endl;
 }
+
+MoveResult Game::isMoveCorrect(Move move) {
+    return Incorrect_KingChecked;
+}

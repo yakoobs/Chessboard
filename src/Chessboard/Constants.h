@@ -45,9 +45,10 @@ enum MoveResult {
     Correct,
     Incorrect_KingChecked,
     Incorrect_SquareOccupied,
-    Incorrect_OutOfPieceRange,
+    Incorrect_PositionOutOfRange,
     Incorrect_CannotMoveThroughOtherPieces,
     Incorrect_WrongDirection,
+    Incorrect_Unknown
 };
 
 enum PlayerStatus { Normal, Check, Checkmate, Stalemate};

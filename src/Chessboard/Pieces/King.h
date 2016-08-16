@@ -11,6 +11,7 @@
 class King : public Piece {
 public:
     King(Colour colour);
+    bool isMoveTrajectoryCorrect(Position start, Position end);
 };
 
 

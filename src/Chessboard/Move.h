@@ -6,7 +6,6 @@
 #define CHESSBOARD_MOVE_H
 
 #include "Pieces/Piece.h"
-#include "Position.h"
 
 struct Move {
     Move(Position start, Position end, Piece piece): startPosition(start), endPosition(end), piece(piece) {}

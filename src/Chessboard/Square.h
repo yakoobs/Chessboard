@@ -6,7 +6,6 @@
 #define CHESSBOARD_SQUARE_H
 
 #include <iostream>
-#include "Position.h"
 #include "Pieces/Piece.h"
 
 struct Square {

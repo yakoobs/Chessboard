@@ -11,7 +11,7 @@
 class Rook: public Piece {
 public:
     Rook(Colour colour);
+    virtual bool isMoveTrajectoryCorrect(Position start, Position end);
 };
-
 
 #endif //CHESSBOARD_ROOK_H

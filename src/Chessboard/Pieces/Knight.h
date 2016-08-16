@@ -11,6 +11,7 @@
 class Knight: public Piece {
 public:
     Knight(Colour colour);
+    bool isMoveTrajectoryCorrect(Position start, Position end);
 };
 
 

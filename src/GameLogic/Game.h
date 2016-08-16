@@ -13,6 +13,7 @@ private:
     Board board;
 
 public:
+    MoveResult isMoveCorrect(Move move);
     void setupStartingPosition();
 };
 
