@@ -11,8 +11,8 @@
 class Pawn: public Piece {
 public:
     Pawn(Colour colour);
-    bool isMoveTrajectoryCorrect(Position start, Position end);
-    virtual bool isAttackingTrajectoryCorrect(Position start, Position end);
+    virtual bool isMoveTrajectoryCorrect(Position start, Position end) override ;
+    virtual bool isAttackingTrajectoryCorrect(Position start, Position end) override ;
 };
 
 

@@ -11,7 +11,7 @@
 class Bishop: public Piece {
 public:
     Bishop(Colour colour);
-    bool isMoveTrajectoryCorrect(Position start, Position end);
+    virtual bool isMoveTrajectoryCorrect(Position start, Position end) override;
 };
 
 
