@@ -5,7 +5,6 @@
 #ifndef CHESSBOARD_BOARD_H
 #define CHESSBOARD_BOARD_H
 
-
 #include "Square.h"
 #include "Move.h"
 

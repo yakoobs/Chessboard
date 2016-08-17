@@ -13,11 +13,21 @@ public:
     Piece(PieceType pieceType, Colour colour) : pieceType(pieceType), colour(colour) {}
     Piece() {}
 
+    bool isMoved = false;
     virtual bool isAttackingTrajectoryCorrect(Position start, Position end) { return isMoveTrajectoryCorrect(start, end);}
     virtual bool isMoveTrajectoryCorrect(Position start, Position end) {return false; };
+
     PieceType pieceType;
     Colour colour;
-    bool isMoved = false;
+
+    bool operator==(const Piece &rhs) const {
+        return pieceType == rhs.pieceType;
+    }
+
+    bool operator!=(const Piece &rhs) const {
+        return !(rhs == *this);
+    }
 };
+
 
 #endif //CHESSBOARD_PIECE_H

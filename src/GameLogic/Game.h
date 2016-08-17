@@ -13,8 +13,11 @@ private:
     Board board;
 
 public:
-    MoveResult isMoveCorrect(Move move);
+    Colour turn = White;
+    MoveResult movePiece(Move move);
+
     void setupStartingPosition();
+    void changeTurn();
 };
 
 

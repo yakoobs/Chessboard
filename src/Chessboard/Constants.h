@@ -43,11 +43,15 @@ enum File {
 
 enum MoveResult {
     Correct,
+    Incorrect_WrongAttackDirection,
+    Incorrect_WrongPiece,
+    Incorrect_WrongPieceColour,
     Incorrect_KingChecked,
     Incorrect_SquareOccupied,
+    Incorrect_CannotCaptureTheKing,
     Incorrect_PositionOutOfRange,
     Incorrect_CannotMoveThroughOtherPieces,
-    Incorrect_WrongDirection,
+    Incorrect_WrongMoveDirection,
     Incorrect_Unknown
 };
 
