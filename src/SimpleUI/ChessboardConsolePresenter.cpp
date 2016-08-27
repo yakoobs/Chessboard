@@ -3,6 +3,10 @@
 //
 
 #include "ChessboardConsolePresenter.h"
+#include <algorithm>
+#include <string>
+
+using namespace std;
 
 void ChessboardConsolePresenter::presentBoard(Board board) {
     for (int rank = kNumberOfRanks; rank >= kFirstRankIndex; rank--) {
@@ -11,7 +15,9 @@ void ChessboardConsolePresenter::presentBoard(Board board) {
 
             if (piece != NULL) {
                 string desc = piece ->description();
-                string simbol = (piece->colour == White) ? "[" + desc + "]" : "(" + desc + ")";
+                string lowerDesc = desc;
+                transform(lowerDesc.begin(), lowerDesc.end(), lowerDesc.begin(), ::tolower);
+                string simbol = (piece->colour == White) ? "(" + lowerDesc + ")" : " " + desc + " ";
                 cout<< simbol;
             } else {
                 cout<< " - ";
