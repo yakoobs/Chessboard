@@ -7,7 +7,7 @@
 Pawn::Pawn(Colour colour) : Piece(PieceType_Pawn, colour) {}
 
 bool Pawn::isMoveTrajectoryCorrect(Position start, Position end) {
-    int rankDiff = end.rank - start.rank;
+    int rankDiff = (colour == White) ? end.rank - start.rank : start.rank - end.rank;
     int absFile = end.file - start.file;
 
     if (isMoved) {

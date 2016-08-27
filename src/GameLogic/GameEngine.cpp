@@ -34,6 +34,7 @@ MoveResult GameEngine::movePiece(Move move) {
     if (!isSquareOccupied && !isMoveTrajCorrect) { return  Incorrect_WrongMoveDirection; }
 
     board.performMove(move);//Okay, go with it!
+    pieceFromStartPos->isMoved = true;
     changeTurn();
     return Correct;
 }

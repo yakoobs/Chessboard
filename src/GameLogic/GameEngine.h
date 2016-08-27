@@ -9,10 +9,8 @@
 #include "../Chessboard/Board.h"
 
 class GameEngine {
-private:
-    Board board;
-
 public:
+    Board board;
     Colour turn = White;
     MoveResult movePiece(Move move);
 

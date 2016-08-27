@@ -21,10 +21,10 @@ Move MovesParser::parseMove(string encodedMove) {
     Position startPosition;
     Position endPosition;
     int kFirstCharacterIndex = 0;
-    PieceType  pieceType = PieceType_Pawn;
+    PieceType pieceType = PieceType_Pawn;
 
     if (len == kPieceMoveStringLength){
-        string pieceTypeCharacter = {1, encodedMove[kFirstCharacterIndex]};
+        string pieceTypeCharacter = encodedMove.substr(kFirstCharacterIndex,1);
         pieceType = pieceTypeForTheLetter(pieceTypeCharacter);
         kFirstCharacterIndex = 1;
     }
