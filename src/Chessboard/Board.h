@@ -22,9 +22,9 @@ private:
 
     void setupPawnsStartingPosition();
     void setupPiecesStartingPosition();
-    void placeWhitePiece(Piece piece, File file);
-    void placeBlackPiece(Piece piece, File file);
-    void placePiece(Piece piece, Rank rank, File file);
+    void placeWhitePiece(Piece* piece, File file);
+    void placeBlackPiece(Piece* piece, File file);
+    void placePiece(Piece *piece, Rank rank, File file);
     void initializeSquares();
     void movePiece(Position from, Position to);
 };

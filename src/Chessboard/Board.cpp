@@ -3,10 +3,12 @@
 //
 
 #include "Board.h"
+#include "Pieces/Pawn.h"
 #include "Pieces/King.h"
 #include "Pieces/Queen.h"
 #include "Pieces/Bishop.h"
 #include "Pieces/Knight.h"
+#include "Pieces/Rook.h"
 
 using namespace std;
 
@@ -36,76 +38,71 @@ void Board::setupPawnsStartingPosition() {
     Rank kWhitePawnsRank = R2;
     Rank kBlackPawnsRank = R7;
 
-    Piece blackPawn = Piece(PieceType_Pawn, Black);
-    Piece whitePawn = Piece(PieceType_Pawn, White);
-
     for (int file = kStartFile; file <= kLastFile; file++) {
-        placePiece(whitePawn, kWhitePawnsRank, (File) file);
-        placePiece(blackPawn, kBlackPawnsRank, (File) file);
+        placePiece(new Pawn(White), kWhitePawnsRank, (File) file);
+        placePiece(new Pawn(Black), kBlackPawnsRank, (File) file);
     }
 }
 
 void Board::setupPiecesStartingPosition() {
     //Rooks
-    Piece whiteRook = Piece(PieceType_Rook, White);
-    Piece blackRook = Piece(PieceType_Rook, Black);
     File kFirstRookFile = A;
     File kSecondRookFile = H;
 
-    placeWhitePiece(whiteRook, kFirstRookFile);
-    placeWhitePiece(whiteRook, kSecondRookFile);
-    placeBlackPiece(blackRook, kFirstRookFile);
-    placeBlackPiece(blackRook, kSecondRookFile);
+    placeWhitePiece(new Rook(White), kFirstRookFile);
+    placeWhitePiece(new Rook(White), kSecondRookFile);
+    placeBlackPiece(new Rook(Black), kFirstRookFile);
+    placeBlackPiece(new Rook(Black), kSecondRookFile);
 
     //Knights
     File kFirstKnightFile = B;
     File kSecondKnightFile = G;
 
-    placeWhitePiece(Knight(White), kFirstKnightFile);
-    placeWhitePiece(Knight(White), kSecondKnightFile);
-    placeBlackPiece(Knight(Black), kFirstKnightFile);
-    placeBlackPiece(Knight(Black), kSecondKnightFile);
+    placeWhitePiece(new Knight(White), kFirstKnightFile);
+    placeWhitePiece(new Knight(White), kSecondKnightFile);
+    placeBlackPiece(new Knight(Black), kFirstKnightFile);
+    placeBlackPiece(new Knight(Black), kSecondKnightFile);
 
     //Bishoprs
     File kFirstBishopFile = C;
     File kSecondBishopFile = F;
 
-    placeWhitePiece(Bishop(White), kFirstBishopFile);
-    placeWhitePiece(Bishop(White), kSecondBishopFile);
-    placeBlackPiece(Bishop(Black), kFirstBishopFile);
-    placeBlackPiece(Bishop(Black), kSecondBishopFile);
+    placeWhitePiece(new Bishop(White), kFirstBishopFile);
+    placeWhitePiece(new Bishop(White), kSecondBishopFile);
+    placeBlackPiece(new Bishop(Black), kFirstBishopFile);
+    placeBlackPiece(new Bishop(Black), kSecondBishopFile);
 
     //Queens
     File kWhiteQueenFile = D;
-    placeWhitePiece(Queen(White), kWhiteQueenFile);
+    placeWhitePiece(new Queen(White), kWhiteQueenFile);
 
     File kBlackQueenFile = E;
-    placeBlackPiece(Queen(Black), kBlackQueenFile);
+    placeBlackPiece(new Queen(Black), kBlackQueenFile);
 
     //Kings
     File kWhiteKingFile = E;
-    placeWhitePiece(King(White), kWhiteKingFile);
+    placeWhitePiece(new King(White), kWhiteKingFile);
 
     File kBlackKingFile = D;
-    placeBlackPiece(King(Black), kBlackKingFile);
+    placeBlackPiece(new King(Black), kBlackKingFile);
 }
 
 Piece* Board::pieceFromPosition(Position position){
     return squares[position.rank - 1][position.file - 1].piece;
 }
 
-void Board::placeWhitePiece(Piece piece, File file) {
+void Board::placeWhitePiece(Piece* piece, File file) {
     Rank kWhitePiecesRank = R1;
     placePiece(piece, kWhitePiecesRank, file);
 }
 
-void Board::placeBlackPiece(Piece piece, File file) {
+void Board::placeBlackPiece(Piece* piece, File file) {
     Rank kBlackPiecesRank = R8;
     placePiece(piece, kBlackPiecesRank, file);
 }
 
-void Board::placePiece(Piece piece, Rank rank, File file) {
-    squares[rank - 1][file - 1].piece = new Piece(piece.pieceType, piece.colour);
+void Board::placePiece(Piece *piece, Rank rank, File file) {
+    squares[rank - 1][file - 1].piece = piece;
 }
 
 //MOVE

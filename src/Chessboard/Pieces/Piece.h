@@ -15,7 +15,7 @@ public:
 
     bool isMoved = false;
     virtual bool isAttackingTrajectoryCorrect(Position start, Position end) { return isMoveTrajectoryCorrect(start, end);}
-    virtual bool isMoveTrajectoryCorrect(Position, Position) {return false; };
+    virtual bool isMoveTrajectoryCorrect(Position start, Position end) {return false; };
 
     PieceType pieceType;
     Colour colour;
