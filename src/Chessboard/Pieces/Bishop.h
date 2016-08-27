@@ -12,6 +12,7 @@ class Bishop: public Piece {
 public:
     Bishop(Colour colour);
     virtual bool isMoveTrajectoryCorrect(Position start, Position end) override;
+    virtual string description() override { return  "B"; };
 };
 
 

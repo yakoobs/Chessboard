@@ -12,6 +12,7 @@ class Rook: public Piece {
 public:
     Rook(Colour colour);
     virtual bool isMoveTrajectoryCorrect(Position start, Position end) override;
+    virtual string description() override { return  "R"; };
 
 };
 

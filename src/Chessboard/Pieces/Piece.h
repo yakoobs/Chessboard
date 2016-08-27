@@ -5,17 +5,20 @@
 #ifndef CHESSBOARD_PIECE_H
 #define CHESSBOARD_PIECE_H
 
-#include "../Constants.h"
+#include <string>
 #include "../Position.h"
+
+using namespace std;
 
 class Piece {
 public:
     Piece(PieceType pieceType, Colour colour) : pieceType(pieceType), colour(colour) {}
-    Piece() {}
 
     bool isMoved = false;
-    virtual bool isAttackingTrajectoryCorrect(Position start, Position end) { return isMoveTrajectoryCorrect(start, end);}
-    virtual bool isMoveTrajectoryCorrect(Position start, Position end) {return false; };
+    virtual bool isAttackingTrajectoryCorrect(Position start, Position end) { return isMoveTrajectoryCorrect(start, end); }
+    virtual bool isMoveTrajectoryCorrect(Position, Position) = 0;
+    virtual string description() = 0;
+
 
     PieceType pieceType;
     Colour colour;

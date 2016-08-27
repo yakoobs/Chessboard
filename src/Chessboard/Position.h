@@ -5,6 +5,8 @@
 #ifndef CHESSBOARD_POSITION_H
 #define CHESSBOARD_POSITION_H
 
+#include "Constants.h"
+
 struct Position {
     Position(Rank rank, File file) : rank(rank), file(file) {}
     Position() {}

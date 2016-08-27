@@ -5,14 +5,14 @@
 #ifndef CHESSBOARD_MOVE_H
 #define CHESSBOARD_MOVE_H
 
-#include "Pieces/Piece.h"
+#include "Position.h"
 
 struct Move {
-    Move(Position start, Position end, Piece piece): startPosition(start), endPosition(end), piece(piece) {}
+    Move(Position start, Position end, PieceType pieceType) : startPosition(start), endPosition(end), pieceType(pieceType) {}
 
     Position startPosition;
     Position endPosition;
-    Piece piece;
+    PieceType pieceType;
 };
 
 

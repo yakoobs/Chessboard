@@ -20,13 +20,12 @@ Move MovesParser::parseMove(string encodedMove) {
 
     Position startPosition;
     Position endPosition;
-    Piece piece;
     int kFirstCharacterIndex = 0;
-    piece.pieceType = PieceType_Pawn;
+    PieceType  pieceType = PieceType_Pawn;
 
     if (len == kPieceMoveStringLength){
         string pieceTypeCharacter = {1, encodedMove[kFirstCharacterIndex]};
-        piece.pieceType = pieceTypeForTheLetter(pieceTypeCharacter);
+        pieceType = pieceTypeForTheLetter(pieceTypeCharacter);
         kFirstCharacterIndex = 1;
     }
 
@@ -45,7 +44,7 @@ Move MovesParser::parseMove(string encodedMove) {
     endPosition.file = fileFromTheLetter(endFileCharacter);
     endPosition.rank = rankFromTheLetter(endRankCharacter);
 
-    return Move(startPosition, endPosition, piece);
+    return Move(startPosition, endPosition, pieceType);
 }
 
 PieceType MovesParser::pieceTypeForTheLetter(string letter) {
