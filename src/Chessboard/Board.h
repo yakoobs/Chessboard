@@ -18,7 +18,7 @@ public:
 
 
 private:
-    Square squares[8][8];
+    Square squares[kNumberOfRanks][kNumberOfFiles];
 
     void setupPawnsStartingPosition();
     void setupPiecesStartingPosition();

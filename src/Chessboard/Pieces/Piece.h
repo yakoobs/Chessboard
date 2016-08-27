@@ -5,8 +5,8 @@
 #ifndef CHESSBOARD_PIECE_H
 #define CHESSBOARD_PIECE_H
 
-#import "../Constants.h"
-#import "../Position.h"
+#include "../Constants.h"
+#include "../Position.h"
 
 class Piece {
 public:
@@ -15,7 +15,7 @@ public:
 
     bool isMoved = false;
     virtual bool isAttackingTrajectoryCorrect(Position start, Position end) { return isMoveTrajectoryCorrect(start, end);}
-    virtual bool isMoveTrajectoryCorrect(Position start, Position end) {return false; };
+    virtual bool isMoveTrajectoryCorrect(Position, Position) {return false; };
 
     PieceType pieceType;
     Colour colour;

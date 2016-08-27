@@ -4,7 +4,7 @@
 
 #include "Knight.h"
 #include <cstdlib>
-Knight::Knight(Colour colour) : Piece(PieceTypeKnight, colour) {}
+Knight::Knight(Colour colour) : Piece(PieceType_Knight, colour) {}
 
 bool Knight::isMoveTrajectoryCorrect(Position start, Position end) {
     int absRanks = abs(end.rank - start.rank);

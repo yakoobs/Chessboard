@@ -5,7 +5,7 @@
 #include "Queen.h"
 #include <cstdlib>
 
-Queen::Queen(Colour colour) : Piece(PieceTypeQueen, colour) {}
+Queen::Queen(Colour colour) : Piece(PieceType_Queen, colour) {}
 
 bool Queen::isMoveTrajectoryCorrect(Position start, Position end) {
     int absRanks = abs(end.rank - start.rank);

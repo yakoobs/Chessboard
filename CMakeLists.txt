@@ -1,7 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
 project(Chessboard)
-
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
-
-set(SOURCE_FILES main.cpp src/Chessboard/Pieces/Piece.h src/Chessboard/Board.cpp src/Chessboard/Board.h src/Chessboard/Move.h src/Chessboard/Square.h src/Chessboard/Position.h src/Chessboard/Constants.h "src/GameLogic/Game.cpp" "src/GameLogic/Game.h" src/Chessboard/Pieces/King.cpp src/Chessboard/Pieces/King.h src/Chessboard/Pieces/Queen.cpp src/Chessboard/Pieces/Queen.h src/Chessboard/Pieces/Bishop.cpp src/Chessboard/Pieces/Bishop.h src/Chessboard/Pieces/Knight.cpp src/Chessboard/Pieces/Knight.h src/Chessboard/Pieces/Rook.cpp src/Chessboard/Pieces/Rook.h src/Chessboard/Pieces/Pawn.cpp src/Chessboard/Pieces/Pawn.h src/Parser/MovesParser.cpp src/Parser/MovesParser.h)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -std=c++11")
+set(SOURCE_FILES main.cpp src/Chessboard/Pieces/Piece.h src/Chessboard/Board.cpp src/Chessboard/Board.h src/Chessboard/Move.h src/Chessboard/Square.h src/Chessboard/Position.h src/Chessboard/Constants.h "src/GameLogic/GameEngine.cpp" "src/GameLogic/GameEngine.h" src/Chessboard/Pieces/King.cpp src/Chessboard/Pieces/King.h src/Chessboard/Pieces/Queen.cpp src/Chessboard/Pieces/Queen.h src/Chessboard/Pieces/Bishop.cpp src/Chessboard/Pieces/Bishop.h src/Chessboard/Pieces/Knight.cpp src/Chessboard/Pieces/Knight.h src/Chessboard/Pieces/Rook.cpp src/Chessboard/Pieces/Rook.h src/Chessboard/Pieces/Pawn.cpp src/Chessboard/Pieces/Pawn.h src/Parser/MovesParser.cpp src/Parser/MovesParser.h src/Parser/ParsingException.cpp src/Parser/ParsingException.h)
 add_executable(Chessboard ${SOURCE_FILES})

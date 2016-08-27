@@ -8,7 +8,7 @@
 
 #include "../Chessboard/Board.h"
 
-class Game {
+class GameEngine {
 private:
     Board board;
 
@@ -18,6 +18,7 @@ public:
 
     void setupStartingPosition();
     void changeTurn();
+    bool gameEnded = false;
 };
 
 

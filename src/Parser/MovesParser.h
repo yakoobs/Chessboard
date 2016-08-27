@@ -6,8 +6,19 @@
 #define CHESSBOARD_MOVESPARSER_H
 
 
-class MovesParser {
+#include "../Chessboard/Move.h"
+#include <string>
 
+using namespace std;
+
+//Parser uses long algebraic notation (e.g. Bb5xc6, d7xc6, 0-0 Bb4xc3, Ng1-f3, Nb8-c6,)
+class MovesParser {
+public:
+    Move parseMove(string encodedMove);
+private:
+    PieceType pieceTypeForTheLetter(string letter);
+    Rank rankFromTheLetter(string letter);
+    File fileFromTheLetter(string letter);
 };
 
 #endif //CHESSBOARD_MOVESPARSER_H

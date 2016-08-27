@@ -36,8 +36,8 @@ void Board::setupPawnsStartingPosition() {
     Rank kWhitePawnsRank = R2;
     Rank kBlackPawnsRank = R7;
 
-    Piece blackPawn = Piece(PieceTypePawn, Black);
-    Piece whitePawn = Piece(PieceTypePawn, White);
+    Piece blackPawn = Piece(PieceType_Pawn, Black);
+    Piece whitePawn = Piece(PieceType_Pawn, White);
 
     for (int file = kStartFile; file <= kLastFile; file++) {
         placePiece(whitePawn, kWhitePawnsRank, (File) file);
@@ -47,8 +47,8 @@ void Board::setupPawnsStartingPosition() {
 
 void Board::setupPiecesStartingPosition() {
     //Rooks
-    Piece whiteRook = Piece(PieceTypeRook, White);
-    Piece blackRook = Piece(PieceTypeRook, Black);
+    Piece whiteRook = Piece(PieceType_Rook, White);
+    Piece blackRook = Piece(PieceType_Rook, Black);
     File kFirstRookFile = A;
     File kSecondRookFile = H;
 

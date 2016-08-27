@@ -5,7 +5,7 @@
 #include "Bishop.h"
 #include <cstdlib>
 
-Bishop::Bishop(Colour colour) : Piece(PieceTypeBishop, colour) {}
+Bishop::Bishop(Colour colour) : Piece(PieceType_Bishop, colour) {}
 
 bool Bishop::isMoveTrajectoryCorrect(Position start, Position end) {
     int absRanks = abs(end.rank - start.rank);

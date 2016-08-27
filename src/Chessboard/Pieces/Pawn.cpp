@@ -4,7 +4,7 @@
 
 #include "Pawn.h"
 
-Pawn::Pawn(Colour colour) : Piece(PieceTypePawn, colour) {}
+Pawn::Pawn(Colour colour) : Piece(PieceType_Pawn, colour) {}
 
 bool Pawn::isMoveTrajectoryCorrect(Position start, Position end) {
     int rankDiff = end.rank - start.rank;

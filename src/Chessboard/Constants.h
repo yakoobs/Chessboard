@@ -12,12 +12,14 @@ const int kNumberOfRanks = 8;
 const int kFirstFileIndex = 1;
 const int kNumberOfFiles = 8;
 
-enum PieceType { PieceTypeKing,
-    PieceTypeQueen,
-    PieceTypeRook,
-    PieceTypeKnight,
-    PieceTypeBishop,
-    PieceTypePawn } ;
+enum PieceType { PieceType_King,
+    PieceType_Queen,
+    PieceType_Rook,
+    PieceType_Knight,
+    PieceType_Bishop,
+    PieceType_Pawn,
+    PieceType_Unknown
+} ;
 
 enum Colour { Black, White };
 
@@ -29,7 +31,9 @@ enum Rank {
     R5 = 5,
     R6 = 6,
     R7 = 7,
-    R8 = 8};
+    R8 = 8,
+    Rank_Unknown
+};
 
 enum File {
     A = 1,
@@ -39,7 +43,9 @@ enum File {
     E = 5,
     F = 6,
     G = 7,
-    H = 8};
+    H = 8,
+    File_Unknown
+};
 
 enum MoveResult {
     Correct,

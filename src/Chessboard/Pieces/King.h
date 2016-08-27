@@ -6,7 +6,7 @@
 #define CHESSBOARD_KING_H
 
 
-#import "Piece.h"
+#include "Piece.h"
 
 class King : public Piece {
 public:

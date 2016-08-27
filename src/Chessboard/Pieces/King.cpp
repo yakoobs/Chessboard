@@ -8,7 +8,7 @@
 
 using namespace std;
 
-King::King(Colour colour) : Piece(PieceTypeKing, colour) {}
+King::King(Colour colour) : Piece(PieceType_King, colour) {}
 
 bool King::isMoveTrajectoryCorrect(Position start, Position end) {
     int absRanks = abs(end.rank - start.rank);
