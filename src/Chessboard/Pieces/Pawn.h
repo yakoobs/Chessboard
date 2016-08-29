@@ -14,6 +14,7 @@ public:
     virtual bool isMoveTrajectoryCorrect(Position start, Position end) override ;
     virtual bool isAttackingTrajectoryCorrect(Position start, Position end) override ;
     virtual string description() override { return  "P"; };
+    virtual bool isMoveCorrect(Move, Board) override;
 };
 
 

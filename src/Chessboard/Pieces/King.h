@@ -13,6 +13,7 @@ public:
     King(Colour colour);
     virtual bool isMoveTrajectoryCorrect(Position start, Position end) override;
     virtual string description() override { return  "K"; };
+    virtual bool isMoveCorrect(Move, Board) override;
 };
 
 

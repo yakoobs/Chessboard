@@ -11,6 +11,8 @@
 class ChessboardConsolePresenter {
 public:
     void presentBoard(Board);
+    void showInitialInfo();
+    void showGameInstructions();
 };
 
 

@@ -5,6 +5,8 @@
 #include <cstdlib>
 #include <algorithm>
 #include "King.h"
+#include "../Move.h"
+#include "../Board.h"
 
 using namespace std;
 
@@ -15,4 +17,8 @@ bool King::isMoveTrajectoryCorrect(Position start, Position end) {
     int absFiles = abs(end.file - start.file);
     int kCorrectKingsMoveDiff = 1;
     return max(absFiles,absRanks) == kCorrectKingsMoveDiff;
+}
+
+bool King::isMoveCorrect(Move, Board) {
+    return true;
 }

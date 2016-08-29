@@ -5,8 +5,7 @@
 #include "src/Game.h"
 
 int main() {
-    Game game = Game();
-    game.playChess();
+    Game().playChess();
 
     return 0;
 }

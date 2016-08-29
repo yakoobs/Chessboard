@@ -10,26 +10,20 @@
 
 using namespace std;
 
+class Board;
+struct Move;
+
 class Piece {
 public:
     Piece(PieceType pieceType, Colour colour) : pieceType(pieceType), colour(colour) {}
 
-    bool isMoved = false;
     virtual bool isAttackingTrajectoryCorrect(Position start, Position end) { return isMoveTrajectoryCorrect(start, end); }
     virtual bool isMoveTrajectoryCorrect(Position, Position) = 0;
     virtual string description() = 0;
-
-
-    PieceType pieceType;
+    virtual bool isMoveCorrect(Move, Board) = 0;
+    bool isMoved = false;
+    PieceType pieceType = PieceType_Unknown;
     Colour colour;
-
-    bool operator==(const Piece &rhs) const {
-        return pieceType == rhs.pieceType;
-    }
-
-    bool operator!=(const Piece &rhs) const {
-        return !(rhs == *this);
-    }
 };
 
 

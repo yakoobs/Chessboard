@@ -3,6 +3,8 @@
 //
 
 #include "Pawn.h"
+#include "../Move.h"
+#include "../Board.h"
 
 Pawn::Pawn(Colour colour) : Piece(PieceType_Pawn, colour) {}
 
@@ -21,4 +23,8 @@ bool Pawn::isAttackingTrajectoryCorrect(Position start, Position end) {
     int rankDiff = end.rank - start.rank;
     int absFile = end.file - start.file;
     return (absFile == 1) && (rankDiff == 1);
+}
+
+bool Pawn::isMoveCorrect(Move move, Board board) {
+    return true;
 }

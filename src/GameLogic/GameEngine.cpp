@@ -9,7 +9,6 @@ using namespace std;
 
 void GameEngine::setupStartingPosition() {
     board.setupStartPosition();
-    cout << "Starting positions set up!" << endl;
 }
 
 MoveResult GameEngine::movePiece(Move move) {

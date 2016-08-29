@@ -13,6 +13,7 @@ public:
     Queen(Colour colour);
     virtual bool isMoveTrajectoryCorrect(Position start, Position end) override;
     virtual string description() override { return  "Q"; };
+    virtual bool isMoveCorrect(Move, Board) override;
 };
 
 

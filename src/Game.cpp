@@ -3,21 +3,29 @@
 //
 
 #include "Game.h"
-#include "Parser/MovesParser.h"
-#include "SimpleUI/ChessboardConsolePresenter.h"
-#include "GameLogic/GameEngine.h"
 #include <iostream>
 
 using namespace std;
 
 void Game::playChess() {
-    cout << "GameEngine started!" << endl;
-    GameEngine game = GameEngine();
-    MovesParser parser = MovesParser();
-    ChessboardConsolePresenter presenter = ChessboardConsolePresenter();
+    presenter.showInitialInfo();
     game.setupStartingPosition();
     presenter.presentBoard(game.board);
 
+    performExampleOpeningMoves();
+
+    while (!game.gameEnded) {
+        presenter.showGameInstructions();
+        string encodedMove;
+        getline(std::cin, encodedMove);
+        Move move = parser.parseMove(encodedMove);
+        game.movePiece(move);
+        presenter.presentBoard(game.board);
+    }
+}
+
+//TODO: This is method just for test purposes
+void Game::performExampleOpeningMoves() {
     Move move = parser.parseMove("e2-e4");
     game.movePiece(move);
     move = parser.parseMove("e7-e5");
@@ -28,15 +36,8 @@ void Game::playChess() {
     game.movePiece(move);
     move = parser.parseMove("Bb5-e7");
     game.movePiece(move);
-
     presenter.presentBoard(game.board);
-
-    while (!game.gameEnded) {
-        cout<< "Type the move encoded with long algebraic notation:"<<endl;
-        string encodedMove;
-        getline(std::cin, encodedMove);
-        Move move = parser.parseMove(encodedMove);
-        game.movePiece(move);
-        presenter.presentBoard(game.board);
-    }
 }
+
+
+
