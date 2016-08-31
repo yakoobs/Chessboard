@@ -20,11 +20,10 @@ public:
     virtual bool isAttackingTrajectoryCorrect(Position start, Position end) { return isMoveTrajectoryCorrect(start, end); }
     virtual bool isMoveTrajectoryCorrect(Position, Position) = 0;
     virtual string description() = 0;
-    virtual bool isMoveCorrect(Move, Board) = 0;
+    virtual bool isTheMovePathClear(Move, Board);
     bool isMoved = false;
     PieceType pieceType = PieceType_Unknown;
     Colour colour;
 };
-
 
 #endif //CHESSBOARD_PIECE_H

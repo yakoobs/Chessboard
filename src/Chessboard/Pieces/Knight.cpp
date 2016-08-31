@@ -15,6 +15,6 @@ bool Knight::isMoveTrajectoryCorrect(Position start, Position end) {
     return (absRanks == 2 && absFiles == 1) ||  (absRanks == 1 && absFiles == 2);
 }
 
-bool Knight::isMoveCorrect(Move, Board) {
+bool Knight::isTheMovePathClear(Move, Board) {
     return true;
 }

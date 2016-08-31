@@ -19,6 +19,6 @@ bool King::isMoveTrajectoryCorrect(Position start, Position end) {
     return max(absFiles,absRanks) == kCorrectKingsMoveDiff;
 }
 
-bool King::isMoveCorrect(Move, Board) {
+bool King::isTheMovePathClear(Move, Board) {
     return true;
 }

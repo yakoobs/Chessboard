@@ -13,7 +13,6 @@ public:
     Bishop(Colour colour);
     virtual bool isMoveTrajectoryCorrect(Position start, Position end) override;
     virtual string description() override { return  "B"; };
-    virtual bool isMoveCorrect(Move, Board) override;
 };
 
 

@@ -4,8 +4,6 @@
 
 #include "Queen.h"
 #include <cstdlib>
-#include "../Move.h"
-#include "../Board.h"
 
 Queen::Queen(Colour colour) : Piece(PieceType_Queen, colour) {}
 
@@ -17,8 +15,4 @@ bool Queen::isMoveTrajectoryCorrect(Position start, Position end) {
     bool isCorrectStraightMove = (absRanks > 0 && absFiles == 0) || (absRanks == 0 && absFiles > 0);
 
     return isCorrectDiagonalMove || isCorrectStraightMove;
-}
-
-bool Queen::isMoveCorrect(Move, Board) {
-    return true;
 }

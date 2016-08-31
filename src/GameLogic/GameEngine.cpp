@@ -23,14 +23,16 @@ MoveResult GameEngine::movePiece(Move move) {
     bool isOccupiedByPieceInTheSameColor = (isSquareOccupied && pieceOnTheDestinationSqaure->colour == pieceFromStartPos->colour);
     if (isOccupiedByPieceInTheSameColor) { return Incorrect_SquareOccupied; }
 
-    bool isAttTrajCorrect = pieceFromStartPos->isAttackingTrajectoryCorrect(move.startPosition, move.endPosition);
-    if (isSquareOccupied && !isAttTrajCorrect) { return Incorrect_WrongAttackDirection; }
-
     bool isOccupiedByKing = isSquareOccupied && (pieceOnTheDestinationSqaure->pieceType == PieceType_King);
     if (isOccupiedByKing) { return  Incorrect_CannotCaptureTheKing; }
 
+    bool isAttTrajCorrect = pieceFromStartPos->isAttackingTrajectoryCorrect(move.startPosition, move.endPosition);
     bool isMoveTrajCorrect = pieceFromStartPos->isMoveTrajectoryCorrect(move.startPosition, move.endPosition);
-    if (!isSquareOccupied && !isMoveTrajCorrect) { return  Incorrect_WrongMoveDirection; }
+
+    if (isSquareOccupied && !isAttTrajCorrect) { return Incorrect_WrongAttackDirection; }
+    else if (!isSquareOccupied && !isMoveTrajCorrect) { return  Incorrect_WrongMoveDirection; }
+
+    if(!pieceFromStartPos->isTheMovePathClear(move, board)) { return  Incorrect_CannotMoveThroughOtherPieces; };
 
     board.performMove(move);//Okay, go with it!
     pieceFromStartPos->isMoved = true;
