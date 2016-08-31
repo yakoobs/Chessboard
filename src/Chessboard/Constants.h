@@ -49,6 +49,7 @@ enum File {
 
 enum MoveResult {
     Correct,
+    Incorrect_ThereIsNoPiece,
     Incorrect_WrongAttackDirection,
     Incorrect_WrongPiece,
     Incorrect_WrongPieceColour,
@@ -60,5 +61,7 @@ enum MoveResult {
     Incorrect_WrongMoveDirection,
     Incorrect_Unknown
 };
+
+enum SpecialMoveType {SpecialMoveType_ShortCasteling, SpecialMoveType_LongCasteling, SpecialMoveType_Promotion, SpecialMoveType_None};
 
 enum PlayerStatus { Normal, Check, Checkmate, Stalemate};

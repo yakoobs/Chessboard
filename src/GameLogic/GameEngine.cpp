@@ -13,6 +13,8 @@ void GameEngine::setupStartingPosition() {
 
 MoveResult GameEngine::movePiece(Move move) {
     Piece* pieceFromStartPos = board.pieceFromPosition(move.startPosition);
+    if(pieceFromStartPos == NULL){ return Incorrect_ThereIsNoPiece; }
+
     if (move.pieceType != (*pieceFromStartPos).pieceType) { return Incorrect_WrongPiece; }
 
     if (pieceFromStartPos->colour != turn) { return  Incorrect_WrongPieceColour; }

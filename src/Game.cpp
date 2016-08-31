@@ -11,24 +11,40 @@ void Game::playChess() {
     presenter.showInitialInfo();
     game.setupStartingPosition();
     presenter.presentBoard(game.board);
+    presenter.showGameInstructions();
 
-    performExampleOpeningMoves();
+//TODO: This is method just for test purposes
+//    performExampleOpeningMoves();
 
     while (!game.gameEnded) {
-        presenter.showGameInstructions();
-        string encodedMove;
-        getline(std::cin, encodedMove);
-        Move move = parser.parseMove(encodedMove);
-        game.movePiece(move);
-        presenter.presentBoard(game.board);
+        try
+        {
+            string encodedMove;
+            getline(std::cin, encodedMove);
+            Move move = parser.parseMove(encodedMove);
+            MoveResult result = game.movePiece(move);
+            if (result == Correct) {
+                presenter.presentBoard(game.board);
+                presenter.showGameInstructions();
+            } else {
+                presenter.showDescriptionForIncorrectMove(result);
+            }
+        }
+        catch(std::exception& e)
+        {
+            std::cout << "Cannot parse your move, try again with correct long algebraic notation: " << std::endl;
+        }
+
     }
 }
+
+
 
 //TODO: This is method just for test purposes
 void Game::performExampleOpeningMoves() {
     Move move = parser.parseMove("e2-e4");
     game.movePiece(move);
-    move = parser.parseMove("e7-e5");
+    move = parser.parseMove("d7-d5");
     game.movePiece(move);
     move = parser.parseMove("Bf1-b5");
     game.movePiece(move);

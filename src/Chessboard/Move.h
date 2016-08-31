@@ -8,11 +8,13 @@
 #include "Position.h"
 
 struct Move {
+    Move(SpecialMoveType specialMoveType) : specialMoveType(specialMoveType) {};
     Move(Position start, Position end, PieceType pieceType) : startPosition(start), endPosition(end), pieceType(pieceType) {}
 
     Position startPosition;
     Position endPosition;
     PieceType pieceType;
+    SpecialMoveType specialMoveType;
 };
 
 

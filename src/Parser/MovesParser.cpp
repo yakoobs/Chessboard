@@ -9,15 +9,13 @@
 using namespace std;
 
 Move MovesParser::parseMove(string encodedMove) {
-    int numberOfCharacters = encodedMove.size();
+    SpecialMoveType specialMoveType = parseSpecialMove(encodedMove);
+    if (specialMoveType != SpecialMoveType_None) {
+        return Move(specialMoveType);
+    }
+
     int kPieceMoveStringLength = 6;
-    int kPawnMoveStringLength = 5;
-
-    string kShortCastelingString = "O-O";
-    string kLongCastelingString = "O-O-O";
-
     int len = encodedMove.length();
-
     Position startPosition;
     Position endPosition;
     int kFirstCharacterIndex = 0;
@@ -78,4 +76,20 @@ File MovesParser::fileFromTheLetter(string letter) {
     if (letter.compare("g") == 0) { return G; }
     if (letter.compare("h") == 0) { return H; }
     return File_Unknown;
+}
+
+SpecialMoveType MovesParser::parseSpecialMove(string encodedMove) {
+    if (isShortCasteling(encodedMove)) { return  SpecialMoveType_ShortCasteling; }
+    if (isLongCasteling(encodedMove)) { return SpecialMoveType_LongCasteling; }
+    return SpecialMoveType_None;
+}
+
+bool MovesParser::isLongCasteling(string encodedMove) {
+    string kLongCastelingNotation = "O-O-O";
+    return (encodedMove.compare(kLongCastelingNotation) == 0);
+}
+
+bool MovesParser::isShortCasteling(string encodedMove) {
+    string kShortCastelingNotation = "O-O";
+    return (encodedMove.compare(kShortCastelingNotation) == 0);
 }

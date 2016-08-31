@@ -5,8 +5,8 @@
 #include "../Move.h"
 #include "../Board.h"
 
-//This implementation is valid for queens, rooks and bishops - other pieces just return true
-//It checks whether thera are any pieces on the route between queen's/rook's/bishop's start and destination positions
+//This implementation is valid for queens, rooks and bishops - other pieces just should return true
+//It checks whether there are any pieces on the route between queen's/rook's/bishop's start and destination positions
 bool Piece::isTheMovePathClear(Move move, Board board) {
     bool goRightFromStartRankPosition = (move.startPosition.file < move.endPosition.file);
     bool goLeftFromStartRankPosition = (move.startPosition.file > move.endPosition.file);

@@ -19,6 +19,9 @@ private:
     PieceType pieceTypeForTheLetter(string letter);
     Rank rankFromTheLetter(string letter);
     File fileFromTheLetter(string letter);
+    SpecialMoveType parseSpecialMove(string encodedMove);
+    bool isLongCasteling(string encodedMove);
+    bool isShortCasteling(string encodedMove);
 };
 
 #endif //CHESSBOARD_MOVESPARSER_H
