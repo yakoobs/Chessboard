@@ -26,6 +26,15 @@ bool Pawn::isAttackingTrajectoryCorrect(Position start, Position end) {
     return (absFiles == 1) && (rankDiff == 1);
 }
 
-bool Pawn::isTheMovePathClear(Move, Board) {
-    return true;
+bool Pawn::isTheMovePathClear(Move move, Board board) {
+    if (isMoved) { return true; }
+
+    Rank startRank = move.startPosition.rank;
+    Rank endRank = move.endPosition.rank;
+    int rankAbs = abs(startRank - endRank);
+    if (rankAbs == 1) { return true; }
+
+    Rank middleSquareRank = (Rank) ((startRank + endRank) / 2);
+    File file = move.startPosition.file;
+    return (board.pieceFromPosition(Position(middleSquareRank,file)) == NULL); //isClear?
 }

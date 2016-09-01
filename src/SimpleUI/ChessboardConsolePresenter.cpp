@@ -40,7 +40,7 @@ void ChessboardConsolePresenter::showGameInstructions() {
 void ChessboardConsolePresenter::showDescriptionForIncorrectMove(MoveResult result) {
     switch (result) {
         case Incorrect_ThereIsNoPiece:
-            cout<< "There is no piece on the initial-estarting position"<<endl;
+            cout<< "There is no piece on the initial-starting position"<<endl;
             break;
         case Incorrect_WrongAttackDirection:
             cout<< "This peace cannot attack in this way, in this direction" <<endl;
